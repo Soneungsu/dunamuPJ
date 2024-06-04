@@ -1,0 +1,76 @@
+.content_top {
+    background-image: url('https://www.dunamu.com/images/img_vs_service.png');
+}
+
+.content_area {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.main_section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    padding: 146px 0;
+}
+
+.main_section_info {
+    width: 600px;
+}
+
+.main_section_info .section_title {
+    margin-bottom: 5px;
+    font-size: 44px;
+    font-weight: 800;
+}
+
+.main_section_info .section_sub_title {
+    margin-bottom: 45px;
+    font-size: 24px;
+}
+
+.main_section_info .section_contnet {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.main_section_info .section_link_area {
+    margin-top: 85px;
+}
+
+.main_section_info .section_link_area .section_link_logo {
+    display: block;
+    width: 120px;
+    margin-bottom: 40px;
+}
+
+.main_section_info .section_link_area .section_link_btn {
+    display: inline-block;
+    height: 60px;
+    margin-left: 5px;
+    padding: 0 30px;
+    font-size: 20px;
+    line-height: 60px;
+    border: 0;
+    background-color: #e4e4e4;
+}
+
+.link_google_ico {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-image: url('https://www.dunamu.com/images/icon_app_googleplay.svg');
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+
+.main_section_image {
+    width: 570px;
+    background-image: url('https://www.dunamu.com/images/img_service_1_1.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
