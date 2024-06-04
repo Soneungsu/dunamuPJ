@@ -31,7 +31,7 @@
             <div class="content">
                 <!-- nav start -->
                 <div class="nav_tab">
-                    <a class="select">활성화 탭명</a>
+                    <a class="select">블록체인 서비스</a>
                     <div class="select_popup">
                         <div class="dimmed"></div>
                         <span>
@@ -54,6 +54,8 @@
                             <div class="main_section_info">
                                 <h2 class="section_title">업비트</h2>
                                 <h3 class="section_sub_title">가장 신뢰받는 글로벌 표준 디지털 자산 거래소</h3>
+                                <img class="sub_section_image main_logo_1">
+                                </img>
                                 <p class="section_contnet">
                                     2017년 10월 론칭한 국내 최대 디지털 자산 거래소이자 국내 1호 가상자산사업자로서, 가장 투명하고 편리한 거래환경과 안정성으로 글로벌 표준을 제시하고 있습니다.
                                 </p>
@@ -68,8 +70,8 @@
                                     <a href="#" class="section_link_btn"><i>투자자보호센터</i></a>
                                 </div>
                             </div>
-                            <div class="main_section_image main_logo_1">
-                            </div>
+                            <img class="main_section_image main_logo_1">
+                            </img>
                         </div>
                     </div>
 
@@ -90,8 +92,8 @@
                                     <a href="#" class="section_link_btn"><i class="link_apple_ico">2</i></a>
                                 </div>
                             </div>
-                            <div class="main_section_image main_logo_2">
-                            </div>
+                            <img class="main_section_image main_logo_2">
+                            </img>
                         </div>
                     </div>
 
@@ -111,8 +113,8 @@
                                     <a href="#" class="section_link_btn"><i>서비스 바로가기</i></a>
                                 </div>
                             </div>
-                            <div class="main_section_image main_logo_3">
-                            </div>
+                            <img class="main_section_image main_logo_3">
+                            </img>
                         </div>
                     </div>
 
@@ -132,8 +134,8 @@
                                     <a href="#" class="section_link_btn"><i>서비스 바로가기</i></a>
                                 </div>
                             </div>
-                            <div class="main_section_image main_logo_4">
-                            </div>
+                            <img class="main_section_image main_logo_4">
+                            </img>
                         </div>
                     </div>
                     
@@ -149,6 +151,14 @@
             $(function() {
                 $('header').load('../include/header.html')
                 $('footer').load('../include/footer.html')
+            });
+
+            $('.nav_tab .select').on('click', function() {
+                $('.select_popup').show();
+            });
+
+            $('.select_popup .dimmed').on('click', function() {
+                $('.select_popup').hide();
             });
         </script>
     </div>
