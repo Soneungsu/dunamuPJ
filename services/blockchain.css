@@ -99,22 +99,6 @@
     background-repeat: no-repeat;
 }
 
-.main_logo_1 {
-    content: url('./images/img_service_1_1.svg');
-}
-
-.main_logo_2 {
-    content: url('./images/img_service_1_2.svg');
-}
-
-.main_logo_3 {
-    content: url('./images/img_service_1_3.svg');
-}
-
-.main_logo_4 {
-    content: url('./images/img_service_1_4.svg');
-}
-
 @media (max-width: 500px) {
     .select_popup {
         display: none;
@@ -123,12 +107,28 @@
     .main_section {
         flex-direction: column;
         width: 100%;
-        padding: 100px 50px;
+        padding: 75px 30px;
     }
 
     .main_section_info ,
     .main_section_image {
         width: 100%;
+    }
+
+    .main_section_info .section_title {
+        margin-bottom: 5px;
+        font-size: 27px;
+        font-weight: 800;
+    }
+    
+    .main_section_info .section_sub_title {
+        margin-bottom: 45px;
+        font-size: 17px;
+    }
+    
+    .main_section_info .section_contnet {
+        margin-bottom: 10px;
+        font-size: 15px;
     }
 
     .main_section_image {
@@ -137,7 +137,23 @@
 
     .sub_section_image {
         display: block;
-        margin: 0 30px;
+        width: 100%;
+        margin-bottom: 44px;
+    }
+    
+    .main_section_info .section_link_area .section_link_btn {
+        padding: 0 15px;
+        height: 40px;
+        font-size: 15px;
+        line-height: 40px;
+    }
+
+    .link_google_ico {
+        height: 40px;
+    }
+    
+    .link_apple_ico {
+        height: 40px;
     }
 
     .select_popup span {
