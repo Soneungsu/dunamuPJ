@@ -103,6 +103,10 @@
     .select_popup {
         display: none;
     }
+    
+    .mobile_display_block {
+        display: block;
+    }
 
     .main_section {
         flex-direction: column;

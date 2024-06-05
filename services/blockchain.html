@@ -160,11 +160,11 @@
             });
 
             $('.nav_tab .select').on('click', function() {
-                $('.select_popup').show();
+                $('.select_popup').addClass('mobile_display_block');
             });
 
             $('.select_popup .dimmed').on('click', function() {
-                $('.select_popup').hide();
+                $('.select_popup').removeClass('mobile_display_block');
             });
         </script>
     </div>
