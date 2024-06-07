@@ -1,0 +1,171 @@
+.content_top {
+  height: 530px;
+  padding-top: 310px;
+  background-image: url(../images/img_vs_main.png);
+}
+
+.content_top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.content_top .content_txt {
+  width: 1200px;
+  padding: 0;
+  text-align: left;
+}
+
+.content_top .content_txt strong {
+  margin-bottom: 60px;
+  font-size: 90px;
+  line-height: 100px;
+}
+
+.content_top .content_txt p {
+  font-size: 30px;
+  line-height: 48px;
+}
+
+.content_top .content_intro_link {
+  width: 1200px;
+  margin-top: 170px;
+  text-align: right;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.content_top .content_intro_link .link_logo {
+  display: inline-block;
+  content: url(../images/icon_moreview.svg);
+  width: auto;
+  height: 20px;
+  margin-left: 20px;
+  vertical-align: middle;
+  line-height: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content_service_intro_area {
+  display: flex;
+  padding-top: 150px;
+  margin-bottom: 70px;
+  width: 1200px;
+}
+
+.content_service_intro_text {
+  
+}
+
+.content_service_intro_text h2 {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 26px;
+}
+
+.content_service_intro_text p {
+  font-size: 20px;
+  line-height: 2;
+}
+
+.content_service_intro_text a {
+  display: inline-block;
+  margin-top: 70px;
+  padding: 15px 25px;
+  font-size: 20px;
+  background-color: #edeff3;
+  border: 0;
+}
+
+.content_service_intro_round {
+  display: flex;
+}
+
+.content_service_intro_round .content_round_common {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  color: #ffffff;
+  border-radius: 50%;
+}
+
+.content_service_intro_round .content_round_common h3 {
+  font-size: 44px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.content_service_intro_round .content_round_common p {
+  font-size: 20px;
+}
+
+.content_service_intro_round .content_round_common.first_round {
+  background-color: #413ee7;
+  z-index: 2;
+  left: 50px;
+}
+
+.content_service_intro_round .content_round_common.second_round {
+  background-color: #070707;
+  z-index: 3;
+  right: 0;
+}
+
+.content .nav_tab {
+  padding-bottom: 158px;
+}
+
+.content .nav_tab span a {
+  border-bottom: 0;
+  border-top: 3px solid #edeff3;
+}
+
+.content .nav_tab span a.on {
+  border-top: 3px solid #0f52b3;
+}
+
+.main_content_area {
+  width: 1200px;
+}
+
+.main_content_area h2 {
+  margin-top: 150px;
+  font-size: 44px;
+  font-weight: 800;
+}
+
+.main_content_area img {
+  margin-top: 50px;
+  margin-right: 140px;
+}
+
+.main_content_text_area {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.main_content_text {
+  margin-right: 80px;
+}
+
+.main_content_text h3 {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 2;
+}
+
+.main_content_text p {
+  font-size: 20px;
+  line-height: 2;
+}
