@@ -55,6 +55,13 @@ header.bg .menu a {
     background: url(/images/icon_gnb_menu.svg) 0 no-repeat;
     background-size: 20px;
 }
+header.bg .menu a.close {
+    width: 16px;
+    height: 16px;
+    margin: 2px 0;
+    background: url(/images/icon_gnb_close.svg) 0 no-repeat;
+    background-size: 16px;
+}
 header .gnb {
     display: flex;
     justify-content: center;
