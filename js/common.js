@@ -10,3 +10,8 @@ function getParam(sname) {
     return sval;
 }
 
+$(function() {
+    document.querySelector('.nav_tab .select').addEventListener('click', function(e) {
+        document.querySelector('.select_popup').classList.add('on');
+    });
+});

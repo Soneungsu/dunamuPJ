@@ -29,10 +29,10 @@
                 <p>기술혁신을 통해 새로운 기회를 여는 두나무의 투자 관련 정보를 제공합니다.</p>
             </div>
         </div>
-        <div class="content">
+        <div class="content line">
             <!-- nav start -->
             <div class="nav_tab">
-                <a class="select">활성화 탭명</a>
+                <a class="select">공고</a>
                 <div class="select_popup">
                     <div class="dimmed"></div>
                     <span>
@@ -144,6 +144,7 @@
 
                 $(function() {
                     document.querySelector(`.select_popup a[data-kind='${kind}']`).classList.add('on')
+                    document.querySelector('.nav_tab a.select').innerHTML = document.querySelector(`.select_popup a[data-kind='${kind}']`).title;
                     list = getItemList(kind);
                     totalCount = list.length;
                     makeItemList();
