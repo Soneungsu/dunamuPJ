@@ -6,6 +6,10 @@
   display: none;
 }
 
+.display_none {
+  display: none !important;
+}
+
 .content_top {
   display: flex;
   justify-content: flex-start;
@@ -62,6 +66,7 @@
 
 .content_service_intro_area {
   display: flex;
+  justify-content: space-between;
   padding-top: 150px;
   margin-bottom: 70px;
   width: 1200px;
@@ -382,7 +387,7 @@
   .content_service_intro_round .content_round_common.second_round {
     position: absolute;
     right: 0;
-    margin-right: 3%;
+    margin-right: 30px;
   }
 
   .content .nav_tab {
@@ -494,4 +499,19 @@
     line-height: 23px;
     word-break: keep-all;
   }
+}
+
+.hidden_text {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.visible_text {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease-in, transform 0.5s ease-in;
+}
+
+[data-intro-btn] {
+  cursor: pointer;
 }

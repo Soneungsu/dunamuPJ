@@ -53,24 +53,73 @@
                     </div>
                 </a>
                 <div class="content">
-                    <div class="content_service_intro_area">
+                    <div class="content_service_intro_area" data-intro="1">
                         <div class="content_service_intro_text">
-                            <h2>안전하고 투명한 블록체인 <br class="desktop_br"> 서비스를 제공합니다</h2>
-                            <p>
+                            <h2 class="ani_text">안전하고 투명한 블록체인 <br class="desktop_br"> 서비스를 제공합니다</h2>
+                            <p class="ani_text">
                                 국내 최대 디지털 자산 거래소를 시작으로 안전하고 투명한 글로벌 표준<br class="desktop_br">거래 환경을 만듭니다.
                             </p>
                             <a href="#">서비스 보기</a>
                         </div>
                         <div class="content_service_intro_round">
                             <div class="content_round_common first_round">
-                                <h3>1위</h3>
-                                <p>국내 디지털</p>
-                                <p>자산 거래소</p>
+                                <h3 class="ani_text">1위</h3>
+                                <p class="ani_text">국내 디지털</p>
+                                <p class="ani_text">자산 거래소</p>
                             </div>
                             <div class="content_round_common second_round">
-                                <h3>최초</h3>
-                                <p>국내 디지털</p>
-                                <p>자산 인덱스</p>
+                                <h3 class="ani_text">최초</h3>
+                                <p class="ani_text">국내 디지털</p>
+                                <p class="ani_text">자산 인덱스</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_service_intro_area display_none" data-intro="2">
+                        <div class="content_service_intro_text">
+                            <h2 class="ani_text">더 쉽고 똑똑하게 투자를 돕는<br class="desktop_br">증권 서비스를 제공합니다</h2>
+                            <p class="ani_text">
+                                한국, 미국 주식부터 비상장 주식까지 다양한 정보와 편의성으로 새로운
+                                <br class="desktop_br">투자 기준을 제시합니다.
+                            </p>
+                            <a href="#">서비스 보기</a>
+                        </div>
+                        <div class="content_service_intro_round">
+                            <div class="content_round_common first_round">
+                                <h3 class="ani_text">1위</h3>
+                                <p class="ani_text">비증권사 금융/</p>
+                                <p class="ani_text">투자분야 No.1</p>
+                                <p class="ani_text">플랫폼 증권플러스</p>
+                            </div>
+                            <div class="content_round_common second_round">
+                                <h3 class="ani_text">최초</h3>
+                                <p class="ani_text">국내 최초, 최대</p>
+                                <p class="ani_text">비상장 안전거래</p>
+                                <p class="ani_text">플랫폼 증권플러스</p>
+                                <p class="ani_text">비상장</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content_service_intro_area display_none" data-intro="3">
+                        <div class="content_service_intro_text">
+                            <h2 class="ani_text">모든 경계를 넘어서는 새로운<br class="desktop_br">가능성을 창조합니다</h2>
+                            <p class="ani_text">
+                                물리적 한계를 넘어서는 새로운 환경에서 블록체인 기술의 무한한
+                                <br class="desktop_br">가능성을 제시합니다.
+                            </p>
+                            <a href="#">서비스 보기</a>
+                        </div>
+                        <div class="content_service_intro_round">
+                            <div class="content_round_common first_round">
+                                <h3 class="ani_text">최대</h3>
+                                <p class="ani_text">국내 최대</p>
+                                <p class="ani_text">동시 접속자</p>
+                                <p class="ani_text">수용 가능</p>
+                            </div>
+                            <div class="content_round_common second_round">
+                                <h3 class="ani_text">최초</h3>
+                                <p class="ani_text">국내 최초</p>
+                                <p class="ani_text">화상미팅 및</p>
+                                <p class="ani_text">NFT 결합</p>
                             </div>
                         </div>
                     </div>
@@ -80,20 +129,20 @@
                             <span>
                                 <!-- 탭 메뉴 start -->
                                 <a class="on"
-                                    title="블록체인 서비스"
-                                    href="/services/blockchain">
+                                    data-intro-btn="1"
+                                    title="블록체인 서비스">
                                     <p class="desktop_display">블록체인 서비스</p>
                                     <p class="mobile_display">블록체인</p>
                                 </a>
                                 <a class=""
-                                    title="증권 서비스"
-                                    href="/services/blockchain">
+                                    data-intro-btn="2"
+                                    title="증권 서비스">
                                     <p class="desktop_display">증권 서비스</p>
                                     <p class="mobile_display">증권</p>
                                 </a>
                                 <a class=""
-                                    title="메타버스 서비스"
-                                    href="/services/metaverse">
+                                    data-intro-btn="3"
+                                    title="메타버스 서비스">
                                     <p class="desktop_display">메타버스 서비스</p>
                                     <p class="mobile_display">메타버스</p>
                                 </a>
@@ -185,6 +234,39 @@
                     $("header").load("include/header.html");
                     $("footer").load("include/footer.html");
                 });
+
+                $(window).on('scroll', function() {
+                    const dataIntro = $('[data-intro-btn].on').data('introBtn');
+                    const firstFlag = isElementInViewport($(`.content_service_intro_area[data-intro=${dataIntro}] .content_service_intro_text`));
+                    const secondFlag = isElementInViewport($(`.content_service_intro_area[data-intro=${dataIntro}] .content_round_common`));
+                    if(!firstFlag && !secondFlag) {
+                        $('.content_service_intro_area .ani_text').addClass('hidden_text').removeClass('visible_text');
+                    } else {
+                        $('.content_service_intro_area .ani_text').addClass('visible_text').removeClass('hidden_text');
+                    }
+                });
+
+                $('[data-intro-btn]').on('click', function() {
+                    const dataIntro = $(this).data('introBtn');
+                    if(!$(this).hasClass('on')) {
+                        $(`[data-intro-btn]`).removeClass('on');
+                        $(this).addClass('on');
+                        $(`[data-intro]`).addClass('display_none');
+                        $(`[data-intro="${dataIntro}"]`).removeClass('display_none');
+                        $('.content_service_intro_area .ani_text').addClass('hidden_text').removeClass('visible_text');
+                        setTimeout(() => {
+                            $(`[data-intro="${dataIntro}"] .ani_text`).addClass('visible_text').removeClass('hidden_text');
+                        }, 0);
+                    }
+                });
+
+                function isElementInViewport(el) {
+                    const windowHeight = $(window).height();
+                    const elementTop = $(el).offset().top;
+                    const elementHeight = $(el).outerHeight();
+                    const scrollTop = $(window).scrollTop();
+                    return (elementTop <= (windowHeight + scrollTop) && (elementTop + elementHeight) >= scrollTop);
+                }
             </script>
         </div>
     </body>
