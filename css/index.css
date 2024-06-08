@@ -169,3 +169,78 @@
   font-size: 20px;
   line-height: 2;
 }
+
+.etc_content_area {
+  display: flex;
+  width: 100%;
+  margin-top: 152px;
+}
+
+.etc_block {
+  display: flex;
+  width: 50%;
+  color: #ffffff;
+}
+
+.etc_block a {
+  color: #ffffff;
+}
+
+.etc_block_first {
+  justify-content: flex-end;
+  height: 820px;
+  background-color: #070707;
+}
+
+.etc_block_second {
+  justify-content: flex-start;
+  height: 820px;
+  background-color: #0f52b3;
+  background-image: url('/images/img_main_career.svg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.etc_block .etc_block_content {
+  margin-top: 150px;
+  width: 500px;
+  word-break: keep-all;
+}
+
+.etc_block_first .etc_block_content {
+  margin-right: 100px;
+}
+
+.etc_block_second .etc_block_content {
+  margin-left: 150px;
+}
+
+.etc_block .etc_block_content h3 {
+  font-size: 44px;
+  line-height: 66px;
+  font-weight: 600;
+}
+
+.etc_block .etc_block_content .etc_link_btn {
+  display: inline-block;
+  height: 60px;
+  margin: 40px 0;
+  padding: 0 30px;
+  font-size: 20px;
+  line-height: 60px;
+  border: 1px solid #ffffff;
+}
+
+.etc_block .etc_block_content ul li {
+  padding: 15px 0;
+  border-bottom: 1px solid #424242;
+}
+
+.etc_block .etc_block_content ul li:last-child {
+  border-bottom: 0;
+}
+
+.etc_block .etc_block_content ul a {
+  font-size: 20px;
+  line-height: 36px;
+}
