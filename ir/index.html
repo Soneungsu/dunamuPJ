@@ -37,8 +37,8 @@
                     <div class="dimmed"></div>
                     <span>
                         <!-- 탭 메뉴 start -->
-                        <a class="on" title="공고" href="" data-kind="announcement">공고</a>
-                        <a class="" title="공시" href="" data-kind="disclosure">공시</a>
+                        <a class="" title="공고" href="?kind=announcement" data-kind="announcement">공고</a>
+                        <a class="" title="공시" href="?kind=disclosure" data-kind="disclosure">공시</a>
                         <!-- 탭 메뉴 end -->
                     </span>
                 </div>
@@ -65,38 +65,53 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="pagination">
-                        <a class="btn btn_first" title="처음 페이지로 이동" href="?page=1">
-                            <span>처음 페이지로 이동</span>
-                        </a>
-                        <a class="btn btn_prev" title="이전 페이지로 이동" href="?page=2">
-                            <span>이전 페이지로 이동</span>
-                        </a>
-                        <a class="" href="?page=1">1</a>
-                        <a class="" href="?page=2">2</a>
-                        <a class="on" href="?page=3">3</a>
-                        <a class="btn btn_next" title="다음 페이지로 이동" href="?page=4">
-                            <span>다음 페이지로 이동</span>
-                        </a>
-                        <a class="btn btn_last" title="마지막 페이지로 이동" href="?page=3">
-                            <span>마지막 페이지로 이동</span>
-                        </a>
-                    </div>
+                    <div class="pagination"></div>
                 </div>
             </div>
             <script>
-                const limit = 10;
+                let kind = getParam('kind')?getParam('kind'):'announcement';
+                let page = getParam('page')?parseInt(getParam('page')):1;
+                let limit = 10;
+                let list = [];
+                let totalCount = 0;
 
                 function makePagination() {
+                    document.querySelector('.pagination').innerHTML = '';
+                    const totalPages = Math.ceil(totalCount/limit);
+                    const prevPage = page===1?page:page-1;
+                    const prevHide = page===1?'hidden':'';
+                    const nextPage = page===totalPages?totalPages:page+1;
+                    const nextHide = page===totalPages?'hidden':'';
 
+                    let html = `
+                        <a class="btn btn_first ${prevHide}" title="처음 페이지로 이동" href="?kind=${kind}&page=1">
+                            <span>처음 페이지로 이동</span>
+                        </a>
+                        <a class="btn btn_prev ${prevHide}" title="이전 페이지로 이동" href="?kind=${kind}&page=${prevPage}">
+                            <span>이전 페이지로 이동</span>
+                        </a>
+                    `;
+                    let i = 1;
+                    while(i <= totalPages) {
+                        let className = i === page?'on':'';
+                        html += `<a class="${className}" href="?kind=${kind}&page=${i}">${i}</a>`;
+                        i++;
+                    }
+                    html += `
+                        <a class="btn btn_next ${nextHide}" title="다음 페이지로 이동" href="?kind=${kind}&page=${nextPage}">
+                            <span>다음 페이지로 이동</span>
+                        </a>
+                        <a class="btn btn_last ${nextHide}" title="마지막 페이지로 이동" href="?kind=${kind}&page=${totalPages}">
+                            <span>마지막 페이지로 이동</span>
+                        </a>
+                    `;
+                    document.querySelector('.pagination').innerHTML = html;
                 }
 
                 function makeItemList() {
-                    document.querySelector('.board_list').innerHTML = '';
-                    const dataKind = document.querySelector('.select_popup a.on').getAttribute('data-kind');
-                    const page = getParam('page')?parseInt(getParam('page')):1;
-                    const list = getItemList(dataKind);
+                    makePagination();
 
+                    document.querySelector('.board_list').innerHTML = '';
                     for(const [index, item] of list.entries()){
                         if(index >= (page-1)*limit && index < page*limit){
                             const li = document.createElement('li');
@@ -128,11 +143,10 @@
                 }
 
                 $(function() {
+                    document.querySelector(`.select_popup a[data-kind='${kind}']`).classList.add('on')
+                    list = getItemList(kind);
+                    totalCount = list.length;
                     makeItemList();
-
-                    window.onresize = function() {
-                        makeItemList();
-                    }
                 });
             </script>
             <!------------------------------->
