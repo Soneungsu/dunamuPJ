@@ -37,3 +37,13 @@ h3 {
     padding-bottom: 160px;
     border-bottom: 3px solid #edeff3;
 }
+
+.core-value {
+    margin: 100px 0;
+    font-size: 44px;
+}
+
+.company-story {
+    display: flex;
+    justify-content: space-between;
+}
