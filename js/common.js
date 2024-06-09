@@ -26,11 +26,11 @@ function closeMenu(node) {
 
 $(function() {
     $('header').on('mouseenter', function(e) {
-        this.classList.add('bg');
+        if(window.scrollY === 0) this.classList.add('bg');
         this.querySelector('.navigation').style.display = 'flex';
 
         $('header').on('mouseleave', function(e) {
-            this.classList.remove('bg');
+            if(window.scrollY === 0) this.classList.remove('bg');
             this.querySelector('.navigation').style.display = 'none';
         })
     })
