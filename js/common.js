@@ -25,6 +25,16 @@ function closeMenu(node) {
 }
 
 $(function() {
+    $('header').on('mouseenter', function(e) {
+        this.classList.add('bg');
+        this.querySelector('.navigation').style.display = 'flex';
+
+        $('header').on('mouseleave', function(e) {
+            this.classList.remove('bg');
+            this.querySelector('.navigation').style.display = 'none';
+        })
+    })
+
     $('header').on('click', '.navigation a.tit', function(e) {
         this.parentElement.classList.contains('on')?this.parentElement.classList.remove('on'):this.parentElement.classList.add('on')
     })
