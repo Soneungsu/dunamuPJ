@@ -655,7 +655,7 @@ footer .copyright p span i {
     box-sizing: border-box;
     transform: translateY(-50%);
 }
-header .navigation div a.tit:after {
+header .navigation div:not(.banner) a.tit:after {
     overflow: hidden;
     content: "";
     display: inline-block;
