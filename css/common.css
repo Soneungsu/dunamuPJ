@@ -147,6 +147,9 @@ header .navigation div span {
     flex-direction: column;
     padding-bottom: 25px;
 }
+header .navigation div.on span {
+    display: flex;
+}
 header .navigation div span a {
     display: block;
     margin-top: 10px;
@@ -651,6 +654,19 @@ footer .copyright p span i {
     background: #fff;
     box-sizing: border-box;
     transform: translateY(-50%);
+}
+header .navigation div a.tit:after {
+    overflow: hidden;
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 11px;
+    background: url(/images/icon_select_open.svg) 0 0 no-repeat;
+    background-size: 18px;
+    text-indent: -999em;
+}
+header .navigation div.on a.tit:after {
+    rotate: 180deg;
 }
 
 /****** common ******/

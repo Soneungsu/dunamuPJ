@@ -25,9 +25,15 @@ function closeMenu(node) {
 }
 
 $(function() {
-    document.querySelector('.nav_tab .select').addEventListener('click', function(e) {
-        document.querySelector('.select_popup').classList.add('on');
-    });
+    $('header').on('click', '.navigation a.tit', function(e) {
+        this.parentElement.classList.contains('on')?this.parentElement.classList.remove('on'):this.parentElement.classList.add('on')
+    })
+
+    if(document.querySelector('.nav_tab .select')){
+        document.querySelector('.nav_tab .select').addEventListener('click', function(e) {
+            document.querySelector('.select_popup').classList.add('on');
+        });
+    }
 
     window.addEventListener('scroll', function() {
         if(window.scrollY > 0) {
