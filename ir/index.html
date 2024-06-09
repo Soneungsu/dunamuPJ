@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>두나무</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon_16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./ir.css">
+</head>
+<body class="sub">
+<div id="init">
+    <!-- header 및 footer 는 화면 로드 시 자동으로 내용으로 로드됩니다. -->
+    <header></header>
+    <main>
+        <!-- 서브페이지 start -->
+        <div class="content_top" style="background-image: url(../images/img_vs_ir.png)">
+            <div class="content_txt">
+                <strong>IR</strong>
+                <p>기술혁신을 통해 새로운 기회를 여는 두나무의 투자 관련 정보를 제공합니다.</p>
+            </div>
+        </div>
+        <div class="content line">
+            <!-- nav start -->
+            <div class="nav_tab">
+                <a class="select">공고</a>
+                <div class="select_popup">
+                    <div class="dimmed"></div>
+                    <span>
+                        <!-- 탭 메뉴 start -->
+                        <a class="" title="공고" href="?kind=announcement" data-kind="announcement">공고</a>
+                        <a class="" title="공시" href="?kind=disclosure" data-kind="disclosure">공시</a>
+                        <!-- 탭 메뉴 end -->
+                    </span>
+                </div>
+            </div>
+            <!-- nav end -->
+
+            <!------------------------------->
+            <!-- CODING START              -->
+            <!------------------------------->
+            <div class="inner last">
+                <h3>경영 관련 주요 공고사항을 알립니다.</h3>
+                <div class="board">
+                    <div class="board_tit">
+                        <span>제목</span>
+                        <span>등록일</span>
+                    </div>
+                    <div class="board-list">
+                        <ul class="board_list">
+                            <li>
+                                <a href="javascript:void(0)" title="">
+                                    <span>사업보고서 (2021.12)</span>
+                                    <span>2022.03.31</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pagination"></div>
+                </div>
+            </div>
+            <script>
+                let kind = getParam('kind')?getParam('kind'):'announcement';
+                let page = getParam('page')?parseInt(getParam('page')):1;
+                let limit = 10;
+                let list = [];
+                let totalCount = 0;
+
+                function makePagination() {
+                    document.querySelector('.pagination').innerHTML = '';
+                    const totalPages = Math.ceil(totalCount/limit);
+                    const prevPage = page===1?page:page-1;
+                    const prevHide = page===1?'hidden':'';
+                    const nextPage = page===totalPages?totalPages:page+1;
+                    const nextHide = page===totalPages?'hidden':'';
+
+                    let html = `
+                        <a class="btn btn_first ${prevHide}" title="처음 페이지로 이동" href="?kind=${kind}&page=1">
+                            <span>처음 페이지로 이동</span>
+                        </a>
+                        <a class="btn btn_prev ${prevHide}" title="이전 페이지로 이동" href="?kind=${kind}&page=${prevPage}">
+                            <span>이전 페이지로 이동</span>
+                        </a>
+                    `;
+                    let i = 1;
+                    while(i <= totalPages) {
+                        let className = i === page?'on':'';
+                        html += `<a class="${className}" href="?kind=${kind}&page=${i}">${i}</a>`;
+                        i++;
+                    }
+                    html += `
+                        <a class="btn btn_next ${nextHide}" title="다음 페이지로 이동" href="?kind=${kind}&page=${nextPage}">
+                            <span>다음 페이지로 이동</span>
+                        </a>
+                        <a class="btn btn_last ${nextHide}" title="마지막 페이지로 이동" href="?kind=${kind}&page=${totalPages}">
+                            <span>마지막 페이지로 이동</span>
+                        </a>
+                    `;
+                    document.querySelector('.pagination').innerHTML = html;
+                }
+
+                function makeItemList() {
+                    makePagination();
+
+                    document.querySelector('.board_list').innerHTML = '';
+                    for(const [index, item] of list.entries()){
+                        if(index >= (page-1)*limit && index < page*limit){
+                            const li = document.createElement('li');
+                            const a = document.createElement('a');
+                            a.href = 'javascript:void(0)';
+                            a.setAttribute('title', item.title);
+                            for(const key of Object.keys(item)) {
+                                const span = document.createElement('span');
+                                span.innerHTML = item[key];
+                                a.appendChild(span);
+                            }
+                            li.appendChild(a);
+                            document.querySelector('.board_list').appendChild(li);
+                        }
+                    }
+                }
+
+                function getItemList(kind) {
+                    let list = [];
+                    $.ajax({
+                        async: false,
+                        url: 'ir.json',
+                        dataType: 'json',
+                        success: function(data) {
+                            list = data[kind];
+                        },
+                    });
+                    return list;
+                }
+
+                $(function() {
+                    document.querySelector(`.select_popup a[data-kind='${kind}']`).classList.add('on')
+                    document.querySelector('.nav_tab a.select').innerHTML = document.querySelector(`.select_popup a[data-kind='${kind}']`).title;
+                    list = getItemList(kind);
+                    totalCount = list.length;
+                    makeItemList();
+                });
+            </script>
+            <!------------------------------->
+            <!-- CODING END                -->
+            <!------------------------------->
+        </div>
+        <!-- 서브페이지 end -->
+    </main>
+    <footer></footer>
+    <script>
+        $(function() {
+            $('header').load('../include/header.html')
+            $('footer').load('../include/footer.html')
+        });
+    </script>
+</div>
+</body>
+</html>

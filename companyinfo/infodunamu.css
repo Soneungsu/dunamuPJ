@@ -1,0 +1,54 @@
+.content_top {
+    background: url(./images/img_vs_service.png);
+}
+.content-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.content-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    padding: 146px 0;
+}
+
+.content-section-info {
+    width: 100%;
+}
+
+.content-tit {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.img-PC {
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: 44px;
+    margin-bottom: 60px;
+}
+.pj-info {
+    padding-bottom: 160px;
+    border-bottom: 3px solid #edeff3;
+}
+
+.core-value {
+    margin: 100px 0;
+    font-size: 44px;
+}
+
+.company-story {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0;
+    width: 100%;
+}
