@@ -276,6 +276,7 @@
     height: 360px;
     padding-top: 60px;
     background-position: center;
+    position: relative;
   }
   
   .content_top .content_txt {
@@ -303,8 +304,9 @@
   .content_top .content_intro_link_mobile {
     display: block;
     width: 100%;
-    margin-top: 60px;
-    margin-right: 60px;
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
     text-align: right;
     color: #ffffff;
     font-size: 15px;
@@ -501,6 +503,18 @@
   }
 }
 
+@media screen and (max-width: 360px) {
+  .content_top .content_txt strong {
+    margin-bottom: 20px;
+    line-height: 45px;
+    font-size: 34px;
+  }
+
+  .content_top .content_txt p {
+    line-height: 24px;
+    font-size: 14px;
+}
+}
 .hidden_text {
   opacity: 0;
   transform: translateY(50px);
